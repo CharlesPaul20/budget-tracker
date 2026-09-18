@@ -1,0 +1,116 @@
+/* Basic page styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    background-color: #f4f4f4;
+}
+
+/* Main heading */
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+/* Section headings */
+h2 {
+    color: #444;
+}
+
+/* Add Expense section */
+#add-expense {
+    background-color: #f9d6d5;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* Class selector */
+.expenses {
+    background-color: #e8f5e9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* Direct child selector */
+#add-expense > form {
+    padding: 10px;
+}
+
+/* Form inputs */
+input,
+select {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Negation pseudo-class */
+input:not([type="submit"]) {
+    background-color: white;
+}
+
+/* Focus pseudo-class */
+input:focus,
+select:focus {
+    border: 2px solid blue;
+    outline: none;
+}
+
+/* Button */
+button {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Table cells */
+.expenses td,
+.expenses th {
+    border: 1px solid #999;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Table header */
+.expenses th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Alternating table rows */
+.expenses tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover effect */
+.expenses tr:hover {
+    background-color: #ddd;
+}
+
+/* Details section */
+details {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+/* Summary */
+summary {
+    cursor: pointer;
+    font-weight: bold;
+}
