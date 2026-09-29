@@ -1,148 +1,97 @@
-/* Google Fonts */
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f7fb;
-    color: #333;
-    margin: 30px;
-}
-
-/* Main heading card */
-header {
-    background-color: #1f4e78;
-    color: white;
-    text-align: center;
-    padding: 30px;
-    margin-bottom: 25px;
-    border: 1px solid #163a5c;
-    border-radius: 12px;
-}
-
-/* Heading font */
-h1,
-h2 {
-    font-family: 'Poppins', sans-serif;
-}
-
-h1 {
-    margin: 10px 0;
-    font-size: 32px;
-}
-
-header p {
-    margin: 5px 0;
-}
-
-/* Add Expense card */
-#add-expense {
-    background-color: white;
-    padding: 25px;
-    margin-bottom: 25px;
-    border: 1px solid #d6dee8;
-    border-radius: 12px;
-}
-
-/* Form */
-form {
-    margin-top: 15px;
-}
-
-input,
-select {
-    display: block;
-    width: 90%;
-    padding: 12px;
-    margin: 12px 0;
-    border: 1px solid #b8c4d1;
-    border-radius: 6px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-/* Input focus */
-input:focus,
-select:focus {
-    outline: none;
-    border: 2px solid #1f4e78;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    min-height: 100vh;
 }
 
-/* Button */
-button {
-    background-color: #1f4e78;
+header {
+    background-color: #2563eb;
     color: white;
-    padding: 12px 22px;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1rem;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.budget-card {
+    background-color: white;
+    width: 100%;
+    max-width: 600px;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.budget-card h2 {
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+.budget-card > p {
+    margin-bottom: 25px;
+    color: #666;
+}
+
+button {
+    background-color: #2563eb;
+    color: white;
     border: none;
+    padding: 12px 25px;
     border-radius: 6px;
     cursor: pointer;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 button:hover {
-    background-color: #163a5c;
+    background-color: #1d4ed8;
 }
 
-/* Expense table card */
-.expenses {
-    background-color: white;
-    padding: 25px;
-    margin-bottom: 25px;
-    border: 1px solid #d6dee8;
-    border-radius: 12px;
-}
-
-/* Table */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-/* Table cells */
-.expenses th,
-.expenses td {
-    border: 1px solid #cbd5df;
-    padding: 14px;
+.results {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8fafc;
+    border-radius: 8px;
     text-align: left;
 }
 
-/* Table header */
-.expenses th {
-    background-color: #1f4e78;
-    color: white;
-    font-family: 'Poppins', sans-serif;
+.results h3 {
+    margin-bottom: 15px;
+    color: #333;
 }
 
-/* Alternating rows */
-.expenses tr:nth-child(even) {
-    background-color: #eef4f9;
+.results p {
+    margin: 10px 0;
+    font-size: 1.05rem;
 }
 
-/* Hover effect */
-.expenses tr:hover {
-    background-color: #dce9f3;
+#balanceDisplay {
+    font-weight: bold;
+    color: #16a34a;
 }
 
-/* Budget Tips section */
-body > section {
-    background-color: white;
-    padding: 25px;
-    margin-bottom: 25px;
-    border: 1px solid #d6dee8;
-    border-radius: 12px;
-}
-
-/* Details */
-details {
-    background-color: white;
+footer {
+    text-align: center;
     padding: 20px;
-    margin-bottom: 25px;
-    border: 1px solid #d6dee8;
-    border-radius: 12px;
-}
-
-summary {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    cursor: pointer;
+    color: #777;
 }
