@@ -6,33 +6,130 @@
     <title>SpendWise - Budget Tracker</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <header>
-        <h1>SpendWise</h1>
-        <p>Simple budgeting made easy.</p>
-    </header>
+    <div class="app">
 
-    <main>
-        <section class="budget-card">
-            <h2>My Budget</h2>
-            <p>Track your budget and expenses using JavaScript.</p>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h1>SpendWise</h1>
+            <p>Personal Finance</p>
 
-            <button id="startButton">Enter Budget Information</button>
+            <nav>
+                <a href="#dashboard">Dashboard</a>
+                <a href="#expenses">Expenses</a>
+                <a href="#add-expense">Add Expense</a>
+            </nav>
+        </aside>
 
-            <div class="results">
-                <h3>Budget Summary</h3>
-                <p id="budgetDisplay">Budget: Not entered</p>
-                <p id="expenseDisplay">Expenses: Not entered</p>
-                <p id="balanceDisplay">Remaining Balance: Not calculated</p>
-            </div>
-        </section>
-    </main>
+        <!-- Main Content -->
+        <main class="main-content">
 
-    <footer>
-        <p>&copy; 2026 SpendWise</p>
-    </footer>
+            <!-- Header -->
+            <header class="header">
+                <div>
+                    <h2>My Budget Dashboard</h2>
+                    <p>Welcome back, Charles!</p>
+                </div>
+            </header>
+
+            <!-- Dashboard -->
+            <section id="dashboard">
+
+                <div class="summary-cards">
+
+                    <div class="summary-card">
+                        <h3>Budget</h3>
+                        <p id="budgetAmount">KSh 60,000</p>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>Total Spent</h3>
+                        <p id="totalSpent">KSh 0</p>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>Remaining</h3>
+                        <p id="remainingAmount">KSh 60,000</p>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>Expenses</h3>
+                        <p id="expenseCount">0</p>
+                    </div>
+
+                </div>
+
+                <!-- Budget Message -->
+                <div id="budgetMessage" class="budget-message">
+                    Add your expenses to see your budget status.
+                </div>
+
+            </section>
+
+            <!-- Add Expense -->
+            <section id="add-expense" class="section">
+                <h2>Add New Expense</h2>
+
+                <form id="expenseForm">
+
+                    <div class="form-group">
+                        <label for="expenseName">Expense Name</label>
+                        <input
+                            type="text"
+                            id="expenseName"
+                            placeholder="e.g. Lunch"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expenseCategory">Category</label>
+
+                        <select id="expenseCategory" required>
+                            <option value="">Select category</option>
+                            <option value="Food">Food</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Rent">Rent</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Savings">Savings</option>
+                            <option value="Utilities">Utilities</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expenseAmount">Amount (KSh)</label>
+                        <input
+                            type="number"
+                            id="expenseAmount"
+                            placeholder="e.g. 500"
+                            min="1"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit">Add Expense</button>
+
+                </form>
+            </section>
+
+            <!-- Expenses -->
+            <section id="expenses" class="section">
+
+                <h2>Recent Expenses</h2>
+
+                <div id="expenseList" class="expense-list">
+                    <p class="empty-message">No expenses added yet.</p>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>

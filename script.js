@@ -1,54 +1,176 @@
-// SpendWise - JavaScript Foundation
-// Week 5 Assignment
+// SpendWise Budget
+const budget = 60000;
 
-// 1. Store application data using variables
-let budget = 0;
-let expenses = 0;
-let remainingBalance = 0;
+// Array used to store expense records
+let expenses = [
+    {
+        name: "Lunch",
+        category: "Food",
+        amount: 8500
+    },
+    {
+        name: "Transport",
+        category: "Transport",
+        amount: 4200
+    },
+    {
+        name: "House Rent",
+        category: "Rent",
+        amount: 15000
+    }
+];
 
-// 2. Function to calculate the remaining balance
-function calculateBalance(budgetAmount, expenseAmount) {
-    return budgetAmount - expenseAmount;
+
+// Select HTML elements
+const expenseForm = document.getElementById("expenseForm");
+const expenseName = document.getElementById("expenseName");
+const expenseCategory = document.getElementById("expenseCategory");
+const expenseAmount = document.getElementById("expenseAmount");
+
+const totalSpentElement = document.getElementById("totalSpent");
+const remainingElement = document.getElementById("remainingAmount");
+const expenseCountElement = document.getElementById("expenseCount");
+const expenseList = document.getElementById("expenseList");
+const budgetMessage = document.getElementById("budgetMessage");
+
+
+// Function to calculate total expenses
+function calculateTotal() {
+
+    let total = 0;
+
+    // Loop through the array
+    for (let i = 0; i < expenses.length; i++) {
+        total += expenses[i].amount;
+    }
+
+    return total;
 }
 
-// 3. Function to collect user input and process the budget
-function enterBudgetInformation() {
-    // Collect budget information from the user
-    let budgetInput = prompt("Enter your total budget:");
 
-    // Collect expense information from the user
-    let expensesInput = prompt("Enter your total expenses:");
+// Function to display expenses
+function displayExpenses() {
 
-    // Convert user input from strings to numbers
-    budget = Number(budgetInput);
-    expenses = Number(expensesInput);
+    // Clear the current list
+    expenseList.innerHTML = "";
 
-    // Check that the user entered valid numbers
-    if (isNaN(budget) || isNaN(expenses)) {
-        console.log("Please enter valid numbers for your budget and expenses.");
-        alert("Please enter valid numbers.");
+    // Check if there are no expenses
+    if (expenses.length === 0) {
+
+        expenseList.innerHTML =
+            '<p class="empty-message">No expenses added yet.</p>';
+
         return;
     }
 
-    // Calculate the remaining balance
-    remainingBalance = calculateBalance(budget, expenses);
+    // Loop through every expense
+    for (let i = 0; i < expenses.length; i++) {
 
-    // Display results in the browser console
-    console.log("===== SpendWise Budget Summary =====");
-console.log("Total Budget: KES 50000");
-console.log("Total Expenses: KES 15000");
-console.log("Remaining Balance: KES 35000");
+        const expense = expenses[i];
 
-    // Display results on the webpage
-    document.getElementById("budgetDisplay").textContent =
-        "Budget: KES " + budget.toLocaleString();
+        const expenseItem = document.createElement("div");
 
-    document.getElementById("expenseDisplay").textContent =
-        "Expenses: KES " + expenses.toLocaleString();
+        expenseItem.classList.add("expense-item");
 
-    document.getElementById("balanceDisplay").textContent =
-        "Remaining Balance: KES " + remainingBalance.toLocaleString();
+        expenseItem.innerHTML = `
+            <div class="expense-info">
+                <h3>${expense.name}</h3>
+                <p>${expense.category}</p>
+            </div>
+
+            <div class="expense-amount">
+                KSh ${expense.amount.toLocaleString()}
+            </div>
+        `;
+
+        expenseList.appendChild(expenseItem);
+    }
 }
 
-// 4. Connect the button to the function
-document.getElementById("startButton").addEventListener("click", enterBudgetInformation);
+
+// Function to update dashboard
+function updateDashboard() {
+
+    const totalSpent = calculateTotal();
+
+    const remaining = budget - totalSpent;
+
+    // Update HTML using DOM manipulation
+    totalSpentElement.textContent =
+        `KSh ${totalSpent.toLocaleString()}`;
+
+    remainingElement.textContent =
+        `KSh ${remaining.toLocaleString()}`;
+
+    expenseCountElement.textContent =
+        expenses.length;
+
+
+    // Conditional statements for budget feedback
+
+    if (totalSpent > budget) {
+
+        budgetMessage.textContent =
+            "⚠️ You have exceeded your budget.";
+
+    } else if (totalSpent >= budget * 0.8) {
+
+        budgetMessage.textContent =
+            "⚠️ Warning: You have used 80% or more of your budget.";
+
+    } else if (totalSpent > 0) {
+
+        budgetMessage.textContent =
+            "✅ You are within your budget. Keep monitoring your spending.";
+
+    } else {
+
+        budgetMessage.textContent =
+            "Add your expenses to see your budget status.";
+    }
+}
+
+
+// Event listener for the form
+expenseForm.addEventListener("submit", function(event) {
+
+    // Prevent page from refreshing
+    event.preventDefault();
+
+    // Get values from the form
+    const name = expenseName.value.trim();
+    const category = expenseCategory.value;
+    const amount = Number(expenseAmount.value);
+
+
+    // Validate the user's input
+    if (name === "" || category === "" || amount <= 0) {
+
+        alert("Please enter valid expense information.");
+
+        return;
+    }
+
+
+    // Add new expense to the array
+    expenses.push({
+        name: name,
+        category: category,
+        amount: amount
+    });
+
+
+    // Update the webpage
+    displayExpenses();
+    updateDashboard();
+
+
+    // Clear the form
+    expenseForm.reset();
+
+});
+
+
+// Display initial data when page loads
+displayExpenses();
+updateDashboard();
