@@ -1,58 +1,37 @@
-# SpendWise - Personal Budget & Expense Tracker
+# Dashboard Assignment
 
-## Week 6 - Make SpendWise Interactive
-
-SpendWise is a Personal Budget & Expense Tracker built using HTML, CSS, and JavaScript.
-
-This week's project adds JavaScript functionality to make the dashboard interactive and dynamic.
-
-## Features
-
-- Add new expenses through a form.
-- Store multiple expenses using an array.
-- Calculate total spending automatically.
-- Calculate the remaining budget.
-- Display the number of expenses.
-- Display expense records dynamically.
-- Provide budget warnings using conditional statements.
-- Respond to user actions using event listeners.
-- Update the webpage using DOM manipulation.
+## Project Overview
+This project is a dashboard webpage built using HTML and CSS. It displays a sidebar navigation menu, dashboard summary cards, and a recent activity section.
 
 ## Technologies Used
-
 - HTML5
 - CSS3
-- JavaScript
+- CSS Grid
+- Flexbox
+- CSS variables
+- Responsive design
 
-## Improvements Made This Week
+## Features
+- Blue sidebar navigation
+- Dashboard overview heading
+- Summary cards for total users, total sales, new orders, and growth rate
+- Recent activity section
+- Consistent colors and spacing
+- Responsive layout for smaller screens
+- Hover and transition effects where implemented
 
-The SpendWise project was changed from a mostly static dashboard into an interactive budgeting application.
+## Project Files
+- `index.html` — contains the webpage structure.
+- `style.css` — contains the styling and layout.
+- `README.md` — describes the project.
 
-Users can now enter an expense name, select a category, enter an amount, and submit the form.
+## How to Run
+1. Open the project folder in Visual Studio Code.
+2. Open `index.html`.
+3. Use the Live Server extension to preview the webpage in a browser.
 
-JavaScript processes the information and immediately updates the dashboard.
+## Author
+Student
 
-The application calculates:
-
-- Total budget
-- Total amount spent
-- Remaining budget
-- Number of expenses
-
-## How Conditionals Are Used
-
-Conditional statements are used to evaluate the user's spending compared to the budget.
-
-For example:
-
-```javascript
-if (totalSpent > budget) {
-    budgetMessage.textContent =
-        "You have exceeded your budget.";
-} else if (totalSpent >= budget * 0.8) {
-    budgetMessage.textContent =
-        "Warning: You have used 80% or more of your budget.";
-} else {
-    budgetMessage.textContent =
-        "You are within your budget.";
-}
+## Assignment
+Week 4 — Dashboard Layout using HTML and CSS
