@@ -4,74 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Assignment</title>
+    <title>My Budget Tracker</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="dashboard">
+    <h1>My Budget Tracker</h1>
+    <p>Track your income and expenses in one place.</p>
 
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <h2>My Dashboard</h2>
-            <nav>
-                <a href="#" class="active">Dashboard</a>
-                <a href="#">Analytics</a>
-                <a href="#">Projects</a>
-                <a href="#">Settings</a>
-            </nav>
-        </aside>
+    <div class="add-expense-section">
+        <h2>Add Expense</h2>
+        <input type="text" placeholder="Expense name">
+        <input type="number" placeholder="Amount">
+        <input type="text" placeholder="Category">
+    </div>
 
-        <!-- Main Content -->
-        <main class="main-content">
-
-            <!-- Header -->
-            <header class="header">
-                <div>
-                    <h1>Dashboard Overview</h1>
-                    <p>Welcome back! Here is your summary.</p>
-                </div>
-                <button class="profile-btn">My Profile</button>
-            </header>
-
-            <!-- Dashboard Cards -->
-            <section class="cards">
-
-                <div class="card" tabindex="0">
-                    <h3>Total Users</h3>
-                    <p class="number">1,250</p>
-                    <p class="description">Users registered</p>
-                </div>
-
-                <div class="card" tabindex="0">
-                    <h3>Total Sales</h3>
-                    <p class="number">$8,450</p>
-                    <p class="description">Sales this month</p>
-                </div>
-
-                <div class="card" tabindex="0">
-                    <h3>New Orders</h3>
-                    <p class="number">320</p>
-                    <p class="description">Orders received</p>
-                </div>
-
-                <div class="card" tabindex="0">
-                    <h3>Growth Rate</h3>
-                    <p class="number">+18%</p>
-                    <p class="description">Growth this month</p>
-                </div>
-
-            </section>
-
-            <!-- Recent Activity -->
-            <section class="activity">
-                <h2>Recent Activity</h2>
-                <p>New user registered successfully.</p>
-                <p>Monthly sales report updated.</p>
-                <p>New order received from a customer.</p>
-            </section>
-
-        </main>
+    <div class="expenses-section" id="expense-list">
+        <h2>Your Expenses</h2>
+        <p>No expenses yet</p>
     </div>
 
 </body>
