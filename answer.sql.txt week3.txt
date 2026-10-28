@@ -1,0 +1,40 @@
+answer.sql
+-- Week 3 Database Assignment
+-- Topics: Transactions and Aggregate Functions
+-- Database: sales
+
+USE sales;
+
+-- Question 1: Count the total number of customers
+SELECT COUNT(*) AS total_customers
+FROM customers;
+
+-- Question 2: Calculate the total payments received
+SELECT SUM(amount) AS total_payments
+FROM payments;
+
+-- Question 3: Calculate the average payment amount
+SELECT AVG(amount) AS average_payment
+FROM payments;
+
+-- Question 4: Find the highest and lowest payment amounts
+SELECT
+    MAX(amount) AS highest_payment,
+    MIN(amount) AS lowest_payment
+FROM payments;
+
+-- Question 5: Count the number of orders by status
+SELECT status, COUNT(*) AS total_orders
+FROM orders
+GROUP BY status
+ORDER BY total_orders DESC;
+
+-- Question 6: Demonstrate a transaction using a temporary change
+START TRANSACTION;
+
+UPDATE customers
+SET creditLimit = creditLimit + 0
+WHERE customerNumber = 103;
+
+-- Undo the change to leave the database unchanged
+ROLLBACK;
