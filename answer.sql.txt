@@ -1,0 +1,52 @@
+# Week 2 Assignment: Introduction to SQL
+
+**Course:** Power Learn Project (PLP)  
+**Module:** Database Systems  
+**Assignment:** Week 2 — Introduction to SQL
+
+## Question 1: Retrieve Payment Information
+
+```sql
+USE sales;
+
+SELECT checkNumber, paymentDate, amount
+FROM payments;
+```
+
+## Question 2: Find Orders in Process
+
+```sql
+SELECT orderDate, requiredDate, status
+FROM orders
+WHERE status = 'In Process'
+ORDER BY orderDate DESC;
+```
+
+## Question 3: Find Sales Representatives
+
+```sql
+SELECT firstName, lastName, email
+FROM employees
+WHERE jobTitle = 'Sales Rep'
+ORDER BY employeeNumber DESC;
+```
+
+## Question 4: Retrieve Office Information
+
+```sql
+SELECT *
+FROM offices;
+```
+
+## Question 5: Retrieve the Five Cheapest Products
+
+```sql
+SELECT productName, quantityInStock
+FROM products
+ORDER BY buyPrice ASC
+LIMIT 5;
+```
+
+## Conclusion
+
+This assignment demonstrates the use of SQL to select specific columns, filter records using `WHERE`, sort results using `ORDER BY`, retrieve all columns using `SELECT *`, and limit results using `LIMIT`.
